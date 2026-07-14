@@ -1,30 +1,31 @@
-/vendor/
-node_modules/
+# General / IDEs
+.DS_Store
+.phpactor.json
+.phpunit.result.cache
 npm-debug.log
 yarn-error.log
+.vagrant
 
-# Laravel 4 specific
-bootstrap/compiled.php
-app/storage/
-
-# Laravel 5 & Lumen specific
-public/storage
-public/hot
-
-# Laravel 5 & Lumen specific with changed public path
-public_html/storage
-public_html/hot
-
-storage/*.key
+# Global ignores (applies to root and subdirectories)
+node_modules/
+vendor/
 .env
-Homestead.yaml
-Homestead.json
-/.vagrant
-.phpunit.result.cache
-
-/public/build
-/storage/pail
 .env.backup
 .env.production
-.phpactor.json
 auth.json
+Homestead.yaml
+Homestead.json
+
+# Specific ignores for Laravel application (inventario-laravel)
+/inventario-laravel/bootstrap/ssr/
+/inventario-laravel/public/build/
+/inventario-laravel/public/hot/
+/inventario-laravel/public/storage
+/inventario-laravel/storage/*.key
+/inventario-laravel/storage/pail
+/inventario-laravel/.fleet/
+/inventario-laravel/.idea/
+/inventario-laravel/.nova/
+/inventario-laravel/.phpunit.cache/
+/inventario-laravel/.vscode/
+/inventario-laravel/.zed/

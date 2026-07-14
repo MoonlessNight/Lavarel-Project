@@ -1,2 +1,59 @@
-# Lavarel-Project
-Un proyecto de pruba donde se usa Lavarel para comprender su funcionamiento.
+# Inventario Laravel (Laravel-Project)
+
+Este es un proyecto de prueba desarrollado en Laravel con el objetivo de comprender su funcionamiento, arquitectura y el diseño de APIs RESTful aplicadas a un sistema de gestión de inventarios.
+
+---
+
+## 🛠️ Comandos Esenciales del Proyecto
+
+A continuación se listan los comandos principales utilizados para configurar y trabajar en este proyecto:
+
+*   **Instalación de dependencias de PHP:**
+    ```bash
+    composer install
+    ```
+    *Nota: Se removieron los paquetes de frontend (NPM/Vite) al reorientar el proyecto hacia una API Backend.*
+
+*   **Generación de la clave de aplicación:**
+    ```bash
+    php artisan key:generate
+    ```
+    Genera la clave única en el archivo `.env` requerida para la seguridad del framework.
+
+*   **Ejecución de migraciones de Base de Datos:**
+    ```bash
+    php artisan migrate
+    ```
+    Crea las tablas en la base de datos a partir de los archivos de migración definidos.
+
+*   **Instalación de Laravel Breeze (Autenticación):**
+    ```bash
+    composer require laravel/breeze --dev
+    php artisan breeze:install
+    ```
+    Instala el andamiaje (scaffold) de autenticación inicial.
+
+*   **Creación del Módulo de Categorías:**
+    ```bash
+    php artisan make:model Categoria -mcr
+    ```
+    Crea el modelo `Categoria` junto con su migración (`-m`), controlador con métodos de recurso (`-c`) y habilitación para el ruteo de recursos (`-r`).
+
+---
+
+## 📋 Historial de Versiones
+
+### 🏷️ v1.1.0 (Versión Actual)
+En esta versión se reorientó el proyecto para funcionar exclusivamente como una **API RESTful de Backend**, eliminando el frontend por defecto y preparando la base para la gestión de inventario.
+
+**Cambios principales desde v1.0.0:**
+*   **Limpieza de Frontend:** Se eliminó el andamiaje inicial de React e Inertia.js (incluyendo `package.json`, Vite, componentes de React y layouts visuales) para aligerar el proyecto y dejarlo como una API limpia.
+*   **Configuración de API y Seguridad:**
+    *   Habilitación y configuración de rutas API en [routes/api.php](file:///c:/Users/SENA/Desktop/Github/Lavarel-Project/inventario-laravel/routes/api.php).
+    *   Configuración de políticas CORS en [config/cors.php](file:///c:/Users/SENA/Desktop/Github/Lavarel-Project/inventario-laravel/config/cors.php).
+    *   Soporte para autenticación con tokens usando Laravel Sanctum en [config/sanctum.php](file:///c:/Users/SENA/Desktop/Github/Lavarel-Project/inventario-laravel/config/sanctum.php).
+*   **Estructuración del Inventario:** Creación del modelo, migración y controlador para gestionar las **Categorías** del inventario ([Categoria.php](file:///c:/Users/SENA/Desktop/Github/Lavarel-Project/inventario-laravel/app/Models/Categoria.php)).
+
+### 🏷️ v1.0.0
+*   Inicialización del proyecto.
+*   Instalación básica de dependencias y andamiaje inicial (Laravel Breeze).
