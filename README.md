@@ -43,7 +43,14 @@ A continuación se listan los comandos principales utilizados para configurar y 
 
 ## 📋 Historial de Versiones
 
-### 🏷️ v1.2.0 (Versión Actual)
+### 🏷️ v1.3.0 (Versión Actual)
+En esta versión se implementaron los controladores para la autenticación basada en API mediante tokens (Laravel Sanctum) y la gestión del perfil de usuario.
+
+**Cambios principales desde v1.2.0:**
+*   **Autenticación API:** Creación de [ApiSuthController.php](file:///c:/Users/Administrador/Documents/GitHub/Lavarel-Project/inventario-laravel/app/Http/Controllers/ApiSuthController.php) con soporte para inicio de sesión (`login`), cierre de sesión (`logout`) y consulta del usuario actual (`me`) a través de tokens de API.
+*   **Gestión de Perfil:** Creación del controlador [ProfileController.php](file:///c:/Users/Administrador/Documents/GitHub/Lavarel-Project/inventario-laravel/app/Http/Controllers/ProfileController.php) para la consulta, actualización y eliminación de la cuenta de usuario.
+
+### 🏷️ v1.2.0
 En esta versión se expandieron las capacidades del sistema agregando la lógica de control para los módulos de subcategorías, productos y la administración básica de usuarios.
 
 **Cambios principales desde v1.1.0:**
