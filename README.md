@@ -43,7 +43,16 @@ A continuación se listan los comandos principales utilizados para configurar y 
 
 ## 📋 Historial de Versiones
 
-### 🏷️ v1.1.0 (Versión Actual)
+### 🏷️ v1.2.0 (Versión Actual)
+En esta versión se expandieron las capacidades del sistema agregando la lógica de control para los módulos de subcategorías, productos y la administración básica de usuarios.
+
+**Cambios principales desde v1.1.0:**
+*   **Módulo de Subcategorías:** Implementación de [SubcategoriaController.php](file:///c:/Users/Administrador/Documents/GitHub/Lavarel-Project/inventario-laravel/app/Http/Controllers/SubcategoriaController.php) para organizar y gestionar subcategorías enlazadas a categorías.
+*   **Módulo de Productos:** Implementación de [ProductoController.php](file:///c:/Users/Administrador/Documents/GitHub/Lavarel-Project/inventario-laravel/app/Http/Controllers/ProductoController.php) (clase `ProductosController`) para gestionar el inventario de productos.
+*   **Módulo de Usuarios:** Implementación de [UserController.php](file:///c:/Users/Administrador/Documents/GitHub/Lavarel-Project/inventario-laravel/app/Http/Controllers/UserController.php) con soporte de roles (`admin`, `coordinador`) y corrección de un error de sintaxis en el método `destroy`.
+*   **Ruteo de Recursos:** Registro de las rutas CRUD correspondientes en [web.php](file:///c:/Users/Administrador/Documents/GitHub/Lavarel-Project/inventario-laravel/routes/web.php).
+
+### 🏷️ v1.1.0
 En esta versión se reorientó el proyecto para funcionar exclusivamente como una **API RESTful de Backend**, eliminando el frontend por defecto y preparando la base para la gestión de inventario.
 
 **Cambios principales desde v1.0.0:**
