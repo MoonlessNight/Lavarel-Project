@@ -14,7 +14,7 @@ class ApiSuthController extends Controller
      */
     public function login(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
@@ -41,30 +41,25 @@ class ApiSuthController extends Controller
             ]
         ]);
     }
-    
+
+    /**
+     * Devolver la informacion del usuario autenticado
+     */
     public function me(Request $request)
     {
         return response()->json($request->user());
     }
 
+
     /**
-     * Remove the specified resource from storage.
+     * Logout del usuario autenticado
      */
-    public function destroy(ProfileUpdateRequest $request): RedirectResponse
+    public function logout(Request $request)
     {
-        $request->validateWithBag('userDeletion',[
-            'password' => ['required','current_password']
+        $request->user()->currentAccessToken()->delete();
+
+        return response()->json([
+            'message' => 'Inicio de sesion cerrada'
         ]);
-
-        $user = $request->user();
-
-        Auth::logout();
-
-        $user->delete();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return Redirect::to('/');
     }
 }
