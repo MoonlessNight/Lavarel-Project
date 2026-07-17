@@ -43,7 +43,16 @@ A continuación se listan los comandos principales utilizados para configurar y 
 
 ## 📋 Historial de Versiones
 
-### 🏷️ v1.3.0 (Versión Actual)
+### 🏷️ v1.4.0 (Versión Actual)
+En esta versión se re-integró el frontend utilizando el motor de plantillas Blade de Laravel, transformando el proyecto de una API RESTful a una aplicación web tradicional con interfaces de usuario completas y control de acceso basado en roles.
+
+**Cambios principales desde v1.3.0:**
+*   **Frontend con Blade:** Creación de layouts, vistas de autenticación, perfil, categorías, subcategorías, productos y usuarios en `resources/views`.
+*   **Autenticación Web y Sesiones:** Configuración de rutas y controladores para flujos de autenticación basados en sesión tradicional (Login, Register, Forgot/Reset Password, etc.).
+*   **Seguridad y Roles:** Implementación y registro de los middlewares `admin` y `coordinador` para autorizar operaciones CRUD en los controladores principales (restringiendo la eliminación para coordinadores).
+*   **Kernel HTTP:** Creación de la clase `Kerbn` (`Kernel.php`) para registrar los middlewares personalizados y gestionar el flujo de peticiones.
+
+### 🏷️ v1.3.0
 En esta versión se implementaron los controladores para la autenticación basada en API mediante tokens (Laravel Sanctum) y la gestión del perfil de usuario.
 
 **Cambios principales desde v1.2.0:**
