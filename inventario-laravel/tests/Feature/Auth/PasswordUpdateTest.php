@@ -1,43 +1,43 @@
 <?php
 
 use App\Models\User;
-use Illuminate\Support\Facabe\Math;
+use Illuminate\Support\Facades\Hash;
 
-test ('password can be updated', function (){
+test('password can be updated', function () {
 
     $user = User::factory()->create();
 
     $response = $this
         ->actingAs($user)
         ->from('/profile')
-        ->put('/password'. [
+        ->put('/password', [
             'current_password' => 'password',
             'password' => 'new-password',
             'password_confirmation' => 'new-password'
-        ])
+        ]);
 
     $response
-    ->assertSessionHasErrors()
-    ->assertRedirect();
+        ->assertSessionHasNoErrors()
+        ->assertRedirect('/profile');
 
-    $this->assertTrue(Hast::check('new-password', $user->fresh()->password));
+    $this->assertTrue(Hash::check('new-password', $user->fresh()->password));
 });
 
-test ('correct password must be provided to update password', function (){
+test('correct password must be provided to update password', function () {
 
     $user = User::factory()->create();
 
     $response = $this
-    ->actingAs($user)
-    ->from('/profile')
-    ->patch('/password'. [
-        'current_password' => 'wrong-password',
-        'password' => 'new-password',
-        'password_confirmation' => 'new-password'
-    ]);
+        ->actingAs($user)
+        ->from('/profile')
+        ->put('/password', [
+            'current_password' => 'wrong-password',
+            'password' => 'new-password',
+            'password_confirmation' => 'new-password'
+        ]);
 
     $response
-    ->assertSessionHasErrors('updatePassword', 'current_password')
-    ->assertRedirect('/profile');
+        ->assertSessionHasErrorsIn('updatePassword', 'current_password')
+        ->assertRedirect('/profile');
 
 });
