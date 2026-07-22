@@ -1,5 +1,5 @@
 <?php
-use APP\Models\User;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 it('allows users to login and acces a protect route', function () {
@@ -10,12 +10,12 @@ it('allows users to login and acces a protect route', function () {
 
     $loginresponse = $this->postJson('/api/login', [
         'email' => $user->email,
-        'password' => 'password123',
+        'password' => 'password',
     ]);
 
     $loginresponse->assertStatus(200)
         ->assertJsonStructure(['token', 'token_type', 'expires_in', 'user'])
-        ->assertJsonStructure(['user.email', $user->email]);
+        ->assertJsonPath('user.email', $user->email);
 
     $token = $loginresponse->json('token');
 

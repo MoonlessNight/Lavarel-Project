@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class ApiSuthController extends Controller
+class ApiAuthController extends Controller
 {
     /**
      * Display a listing of the resource.
